@@ -1,0 +1,34 @@
+https://medium.com/h7w/api-design-design-first-vs-code-first-f1c8eccd0b93
+
+--------------------------------------------------------------------------
+
+Design fist
+
+Pros:
+    - Better collaboration
+    - Parallel work
+    - Easier testing
+    - Improved documentation
+    - Improved API usability
+
+Cons:
+    - Potential misalignment with implementation
+    - Learning curve
+    - Dependency on design tools
+    - Limited flexibility
+
+--------------------------------------------------------------------------
+
+Code first
+
+Pros:
+    - Faster development
+    - No need for another tool/language
+    - Easier iteration
+    - Seamless integration
+    - Direct control over implementation
+
+Cons:
+    - Lack of documentation
+    - Coupling
+    - Pour design

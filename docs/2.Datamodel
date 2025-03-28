@@ -1,0 +1,18 @@
+Article
+- name: string
+- price: BigDecimal
+- description: string
+- picture: string
+
+Category
+- name: string
+- description: string
+
+Table
+- name: string
+- seatCount: int
+- active: boolean
+
+
+ManyToOne
+Article (*) -----> (1) Category
