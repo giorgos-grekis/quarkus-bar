@@ -48,6 +48,15 @@
             <artifactId>rest-assured</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-validator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jackson</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -104,7 +113,37 @@
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+<!--                <version>7.2.0</version>-->
+                <!--  Generate a Jax-rs based API using Rest easy as an implementation  -->
+                <executions>
+                    <execution>
+                        <id>Generate JAX-RS server-api-stubs</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <!-- path to opanapi yaml file -->
+                            <inputSpec>${project.baseUri}/src/main/resources/openapi/bar-openapi.yaml</inputSpec>
+                            <!-- choose the target generator -->
+                            <generatorName>jaxrs-spec</generatorName>
+                            <!-- specify the java packages -->
+                            <apiPackage>bar.smartbar.api</apiPackage>
+                            <modelPackage>bar.smartbar.api.model</modelPackage>
+                            <configOptions>
+                                <sourceFolder>src/main/java</sourceFolder>
+                                <useJakartaEe>true</useJakartaEe>
+                                <useSwaggerAnnotations>false</useSwaggerAnnotations>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
+
     </build>
 
     <profiles>
