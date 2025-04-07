@@ -30,10 +30,13 @@
     </dependencyManagement>
 
     <dependencies>
+        <!--  from dependency injection   -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-arc</artifactId>
         </dependency>
+
+        <!--   enable writing Jax-rs APIs   -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-rest</artifactId>
@@ -53,6 +56,7 @@
             <artifactId>quarkus-hibernate-validator</artifactId>
         </dependency>
 
+        <!--   serialize object to JSON   -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-jackson</artifactId>
@@ -114,11 +118,11 @@
                 </configuration>
             </plugin>
 
+            <!--  Generate a Jax-rs based API using Rest easy as an implementation  -->
             <plugin>
                 <groupId>org.openapitools</groupId>
                 <artifactId>openapi-generator-maven-plugin</artifactId>
-<!--                <version>7.2.0</version>-->
-                <!--  Generate a Jax-rs based API using Rest easy as an implementation  -->
+                <version>7.2.0</version>
                 <executions>
                     <execution>
                         <id>Generate JAX-RS server-api-stubs</id>
@@ -129,11 +133,13 @@
                             <!-- path to opanapi yaml file -->
                             <inputSpec>${project.baseUri}/src/main/resources/openapi/bar-openapi.yaml</inputSpec>
                             <!-- choose the target generator -->
+                            <!-- https://openapi-generator.tech/docs/generators -->
                             <generatorName>jaxrs-spec</generatorName>
                             <!-- specify the java packages -->
-                            <apiPackage>bar.smartbar.api</apiPackage>
-                            <modelPackage>bar.smartbar.api.model</modelPackage>
+                            <apiPackage>bar.smartbar.backoffice.api</apiPackage>
+                            <modelPackage>bar.smartbar.backoffice.api.model</modelPackage>
                             <configOptions>
+                                <!-- https://openapi-generator.tech/docs/generators/go-server/#config-options -->
                                 <sourceFolder>src/main/java</sourceFolder>
                                 <useJakartaEe>true</useJakartaEe>
                                 <useSwaggerAnnotations>false</useSwaggerAnnotations>
