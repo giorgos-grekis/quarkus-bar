@@ -1,5 +1,7 @@
 package bar.smartbar;
 
+import bar.smartbar.api.CategoriesResource;
+import io.quarkus.test.InjectMock;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -13,6 +15,11 @@ import static io.restassured.RestAssured.given;
 
 @QuarkusTest
 class CategoriesResourceTest {
+
+
+    @InjectMock
+
+
     @Test
     void getsListOfCategories() {
         final Response response = given()
