@@ -13,9 +13,13 @@
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
         <quarkus.platform.version>3.21.0</quarkus.platform.version>
-        <skipITs>true</skipITs>
+<!--        <quarkus.platform.version>3.6.8</quarkus.platform.version>-->
+        <skipITs>false</skipITs>
         <surefire-plugin.version>3.5.2</surefire-plugin.version>
+<!--        <surefire-plugin.version>3.1.2</surefire-plugin.version>-->
+        <quarkus.native.enabled>true</quarkus.native.enabled>
     </properties>
+
 
     <dependencyManagement>
         <dependencies>
@@ -65,7 +69,7 @@
         <!--   serialize object to JSON   -->
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-jackson</artifactId>
+            <artifactId>quarkus-rest-jackson</artifactId>
         </dependency>
     </dependencies>
 
@@ -82,7 +86,7 @@
                             <goal>build</goal>
                             <goal>generate-code</goal>
                             <goal>generate-code-tests</goal>
-                            <goal>native-image-agent</goal>
+<!--                            <goal>native-image-agent</goal>-->
                         </goals>
                     </execution>
                 </executions>
@@ -168,10 +172,7 @@
                     <name>native</name>
                 </property>
             </activation>
-            <properties>
-                <skipITs>false</skipITs>
-                <quarkus.native.enabled>true</quarkus.native.enabled>
-            </properties>
+
         </profile>
     </profiles>
 </project>
