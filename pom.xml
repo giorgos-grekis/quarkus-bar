@@ -52,6 +52,12 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-path</artifactId>
+            <version>5.4.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-hibernate-validator</artifactId>
         </dependency>
@@ -136,13 +142,15 @@
                             <!-- https://openapi-generator.tech/docs/generators -->
                             <generatorName>jaxrs-spec</generatorName>
                             <!-- specify the java packages -->
-                            <apiPackage>bar.smartbar.backoffice.api</apiPackage>
-                            <modelPackage>bar.smartbar.backoffice.api.model</modelPackage>
+                            <apiPackage>bar.smartbar.api</apiPackage>
+                            <modelPackage>bar.smartbar.api.model</modelPackage>
                             <configOptions>
                                 <!-- https://openapi-generator.tech/docs/generators/go-server/#config-options -->
                                 <sourceFolder>src/main/java</sourceFolder>
                                 <useJakartaEe>true</useJakartaEe>
                                 <useSwaggerAnnotations>false</useSwaggerAnnotations>
+                                <interfaceOnly>true</interfaceOnly>
+                                <returnResponse>true</returnResponse>
                             </configOptions>
                         </configuration>
                     </execution>
