@@ -1,6 +1,5 @@
-package bar.smartbar;
+package bar.smartbar.api;
 
-import bar.smartbar.api.TablesApi;
 import bar.smartbar.api.model.Table;
 import jakarta.ws.rs.core.Response;
 

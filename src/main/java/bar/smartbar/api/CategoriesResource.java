@@ -1,6 +1,5 @@
-package bar.smartbar;
+package bar.smartbar.api;
 
-import bar.smartbar.api.CategoriesApi;
 import bar.smartbar.api.model.Category;
 import jakarta.ws.rs.core.Response;
 
